@@ -1,7 +1,7 @@
 class User
 
-  def initialize(input) #input is params[:name]
-    @username = input
+  def initialize(username)
+    @username = username
     @response = get_response
   end
 
