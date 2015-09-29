@@ -39,27 +39,27 @@ end
 
 def test_joined_date
   julie=User.new("julemagne")
-  assert_equal "2014-01-22T15:11:02Z", julie.joined_date
+  assert_equal "Joined on January 22, 2014", julie.joined_date
 end
 
 def test_profile_picture_url
   julie=User.new("julemagne")
-  assert_equal "2014-01-22T15:11:02Z", julie.profile_picture
+  assert_equal "https://avatars.githubusercontent.com/u/6472387?v=3", julie.profile_picture
 end
 
 def test_starred
   julie=User.new("julemagne")
-  assert_equal "2014-01-22T15:11:02Z", julie.starred
+  assert_equal nil, julie.starred
 end
 
 def test_following
   julie=User.new("julemagne")
-  assert_equal "2014-01-22T15:11:02Z", julie.following
+  assert_equal 12, julie.following
 end
 
 def test_organizations
   julie=User.new("julemagne")
-  assert_equal "2014-01-22T15:11:02Z", julie.organizations
+  assert_equal "https://api.github.com/users/julemagne/orgs", julie.organizations
 end
 
 end

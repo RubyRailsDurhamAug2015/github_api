@@ -1,7 +1,10 @@
 <p>
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/PEO-octocat-1.svg/200px-PEO-octocat-1.svg.png">
-<!--<label for="name_field">Name:</label>
-    <input name="name"></input>
+<!--
+  <%= form_tag({controller: "profiles", action: "search", authenticity_token: "ENV[GITHUB_TOKEN]"}, method: "get", class: "fancy_form") %>
 -->
-  <%= form_tag({controller: "profiles", action: "search"}, method: "get", class: "fancy_form") %>
+<form action="http://github.com">
+  <label for="name_field">Github username:</label>
+  <input name="name"></input>
+</form>
 </p>
