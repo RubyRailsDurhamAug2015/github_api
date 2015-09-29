@@ -1,11 +1,11 @@
 class User
 
-def initialize(input) #input is params[:name]
-  @username = input
-  @response = get_response
-end
+  def initialize(input) #input is params[:name]
+    @username = input
+    @response = get_response
+  end
 
-def profile_picture
+  def profile_picture
     @response["avatar_url"]
   end
 
@@ -13,7 +13,7 @@ def profile_picture
     @response["name"]
   end
 
-  def user_name
+  def username
     @response["login"]
   end
 
@@ -25,7 +25,7 @@ def profile_picture
     @response["location"]
   end
 
-  def joined_date
+  def joined_on
     @response["created_at"]
   end
 
@@ -34,7 +34,7 @@ def profile_picture
   end
 
   def starred
-    @response[""]
+    @response["https://api.github.com/users/#{@username}/starred{/owner}{/repo}"]
   end
 
   def following
@@ -55,7 +55,6 @@ def get_response
   })
   #JSON.parse(response.to_s)
 end
-
 
 
 end
