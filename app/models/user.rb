@@ -126,7 +126,6 @@ class User
 
   def get_response
     response = HTTParty.get("https://api.github.com/users/#{@username}", :basic_auth => auth )
-    # return {} if response["message"]
     return response
   end
 
