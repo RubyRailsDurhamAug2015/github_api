@@ -113,7 +113,6 @@ class User
   end
 
   def organization_info
-    return [] if @organization_response.nil?
     array = []
     @organization_response.each do |org|
       hash = {
@@ -127,13 +126,12 @@ class User
 
   def get_response
     response = HTTParty.get("https://api.github.com/users/#{@username}", :basic_auth => auth )
-    return {} if response["message"]
     return response
   end
 
   def organization_response
     response = HTTParty.get("https://api.github.com/users/#{@username}/orgs", :basic_auth => auth)
-    return [] if response["message"]
+    # return [] if response["message"]
     return response
   end
 
@@ -141,7 +139,7 @@ class User
     response = HTTParty.get("https://api.github.com/users/#{user}/repos", :basic_auth => auth)
     # file = "./test/json/results.json"
     # JSON.parse(File.read(file))
-    return [] if response["message"]
+    # return [] if response["message"].nil?
     return response
   end
 

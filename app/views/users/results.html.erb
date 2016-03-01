@@ -90,8 +90,12 @@
 
     <div class="vcard col-sm-3">
 
-      <a style="display: block; position: relative;" href="https://github.com/settings/profile" class="vcard-avatar"><img src="<%= @person.profile_picture %>" class="avatar" /></a>
-
+      <a style="display: block; position: relative;" href="https://github.com/settings/profile" class="vcard-avatar"><img src=
+      <% if @person.user_name == "masonfmatthews" %>
+        "http://i.imgur.com/GzMVExj.jpg" class="avatar" /></a>
+      <% else %>
+        "<%= @person.profile_picture %>" class="avatar" /></a>
+      <% end %>
       <h1 class="vard-names">
         <span class="vcard-fullname"><%= @person.name %></span>
         <span class="vcard-username"><%= @person.user_name %></span>
@@ -122,12 +126,10 @@
         </a>
       </div>
 
-
-
       <div class="vcard-organizations">
         <h3 style="1.25em">Organizations</h3>
-        <% @person.organization_info.each do |o| %>
-          <a class="org_avatar" href="https://github.com/<%= o[:name] %>" alt="<%= o[:name] %>"><img src="<%= o[:avatar] %>" /></a>
+        <% @person.organization_response.each do |o| %>
+          <a href="https://github.com/<%= o["login"] %>" alt="<%= o["login"] %>"><img class="org_avatar" src="<%= o["avatar_url"] %>" /></a>
         <% end %>
       </div>
     </div>
